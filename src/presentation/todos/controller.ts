@@ -1,7 +1,9 @@
+import { PrismaClient } from "@prisma/client";
 import { Request, Response } from "express";
-import { prisma } from "../../data/postgres";
+// import { prisma } from "../../data/postgres";
 import { CreateTodoDto, UpdateTodoDto } from "../../domain/dtos";
 
+const prisma = new PrismaClient();
 export class TodosController {
   //* no va a tener métodos estáticos porque vamos a querer hacer el dependecy injección
   // Por ejemplo inyectar un repositorio, que nuestras rutas usen ese repositorio.
